@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoysFishings.com - 낚시 장비 전문몰</title>
+    <style>
+        /* 기존 스타일 */
+        body, h1, h2, h3, p, ul, li { margin: 0; padding: 0; list-style: none; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            padding-bottom: 80px; /* 하단 네비게이션 높이 */
+            padding-top: 40px; /* 상단 배너 높이만큼 여백 추가 */
+        }
+        a { text-decoration: none; color: inherit; }
+        header { padding: 10px 15px; background-color: #ffffff; border-bottom: 1px solid #e9ecef; }
+        .search-bar { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 8px; font-size: 16px; }
+        .icon-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 20px 15px; text-align: center; }
+        .icon-item .icon { display: block; width: 50px; height: 50px; background-color: #e9ecef; border-radius: 15px; margin: 0 auto 8px; line-height: 50px; font-size: 24px; }
+        .icon-item span { font-size: 14px; }
+        .emergency-sale { margin: 0 15px 20px; padding: 20px; background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); }
+        .emergency-sale h2 { font-size: 22px; margin-bottom: 5px; }
+        .emergency-sale p { font-size: 16px; opacity: 0.9; }
+        .content-section { padding: 15px; }
+        .content-section h2 { font-size: 18px; margin-bottom: 15px; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .content-item { background-color: white; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef; }
+        .content-item img { width: 100%; height: 120px; object-fit: cover; }
+        .content-item .info { padding: 10px; }
+        .content-item .info p { font-size: 14px; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; background-color: #ffffff; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.05); }
+        .bottom-nav a { display: flex; flex-direction: column; align-items: center; font-size: 12px; }
+        .bottom-nav a .icon { font-size: 24px; margin-bottom: 3px; }
+        .bottom-nav a.active { color: #007bff; }
+
+        /* --- 긴급 할인 타이머 배너 스타일 --- */
+        .discount-banner {
+            position: fixed; /* 화면 상단에 고정 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffc107; /* 눈에 띄는 노란색 */
+            color: #212529;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+            z-index: 1000; /* 다른 요소들보다 위에 표시 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .discount-banner .icon {
+            margin-right: 8px;
+        }
+        #discount-timer {
+            font-size: 1.1em;
+            color: #d9534f; /* 빨간색으로 강조 */
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="discount-banner">
+        <span class="icon">⏰</span>
+        <span>15분 안에 안 사면 할인 종료!</span>
+        <span id="discount-timer">15:00</span>
+    </div>
+
+    <header>
+        <form id="search-form">
+            <input type="search" id="search-input" class="search-bar" placeholder="어떤 장비를 찾고 계세요?">
+        </form>
+    </header>
+
+    <main>
+        <nav class="icon-nav">
+            <a href="products.html" class="icon-item">
+                <div class="icon">🎣</div>
+                <span>낚시대</span>
+            </a>
+            <a href="reels.html" class="icon-item">
+                <div class="icon">⚙️</div>
+                <span>릴</span>
+            </a>
+            <a href="lines.html" class="icon-item">
+                <div class="icon">🪝</div>
+                <span>낚시줄/바늘</span>
+            </a>
+            <a href="lures.html" class="icon-item">
+                <div class="icon">🦐</div>
+                <span>미끼/루어</span>
+            </a>
+        </nav>
+
+        <section class="emergency-sale">
+            <h2>🚨 초특가 낚시대 50% 긴급할인!</h2>
+            <p>보이즈피싱 카본 낚시대 한정수량 특가</p>
+        </section>
+
+          <section class="content-section">
+            <h2>MD 추천 상품</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <img src="https://ttfish.co.kr/web/product/big/shop1_d9d69bd7cc7052ed6b0053d1c88eb02c.jpg" alt="낚시대">
+                    <div class="info"><p>시마노 리얼 파워 석조(22) 돌돔대</p></div>
+                </div>
+                <div class="content-item">
+                    <img src="https://img2.tmon.kr/cdn4/deals/2024/03/02/25851917018/front_1d297_9e0xb.jpg" alt="릴">
+                    <div class="info"><p>3000번 스피닝 릴</p></div>
+                </div>
+                <div class="content-item">
+                    <img src="https://img2.tmon.kr/cdn4/deals/2024/07/22/27319945442/27319945442_front_17219ca64a.jpg" alt="루어">
+                    <div class="info"><p>광어 다운샷 채비 세트</p></div>
+                </div>
+                <div class="content-item">
+                    <img src="https://img4.tmon.kr/cdn4/deals/2022/02/12/9907178754/9907178754_front_a14d2975fc.jpg" alt="낚시줄">
+                    <div class="info"><p>고강도 합사 8합</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+       
+        <a href="#"><div class="icon">🏠</div><span>홈</span></a>
+        <a href="#" class="active"><div class="icon">👤</div><span>마이페이지</span></a>
+        <a href="#"><div class="icon">🛒</div><span>장바구니</span></a>
+    </nav>
+
+    <script>
+        // 페이지가 로드되면 타이머 스크립트를 실행합니다.
+        document.addEventListener('DOMContentLoaded', () => {
+            const timerElement = document.getElementById('discount-timer');
+            const bannerElement = document.querySelector('.discount-banner');
+
+            // 로컬 저장소에서 종료 시간을 가져오거나 새로 설정합니다.
+            let endTime = localStorage.getItem('discountEndTime');
+            if (!endTime) {
+                // 15분 후의 시간을 설정합니다.
+                endTime = new Date().getTime() + 15 * 60 * 1000;
+                localStorage.setItem('discountEndTime', endTime);
+            }
+
+            // 1초마다 타이머를 업데이트하는 함수
+            const timerInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                // 시간이 남았을 경우
+                if (distance > 0) {
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // 두 자리 수로 포맷팅 (예: 09, 08, ...)
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                } else {
+                    // 시간이 종료되었을 경우
+                    clearInterval(timerInterval);
+                    bannerElement.innerHTML = '<span>⏰ 아쉽지만, 타임 세일이 종료되었습니다!</span>';
+                    localStorage.removeItem('discountEndTime'); // 저장된 시간 제거
+                }
+            }, 1000);
+        });
+    </script>
+    
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchTerm = searchInput.value.trim();
+
+            if (searchTerm) {
+                const searchUrl = `search-results.html?query=${encodeURIComponent(searchTerm)}`;
+                window.location.href = searchUrl;
+            }
+        });
+    </script>
+
+</body>
+</html>
